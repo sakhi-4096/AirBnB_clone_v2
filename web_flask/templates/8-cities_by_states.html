@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HBNB</title> <!-- Title for the HTML page -->
+</head>
+
+<body>
+  <h1>States</h1> <!-- Heading to indicate the list of states -->
+  <ul>
+    {% for state in states | sort(attribute="name") %}
+    <!-- Loop through the 'states' variable, sorted by 'name' attribute -->
+    <li>{{ state.id }}: <b>{{ state.name }}</b>
+      <!-- Display the state ID and name in a list item -->
+      <ul>
+        {% for city in state.cities | sort(attribute="name") %}
+        <!-- Loop through the cities of the state, sorted by 'name' attribute -->
+        <li>{{ city.id }}: <b>{{ city.name }}</b>
+          <!-- Display the city ID and name in a sub-list item -->
+        </li>
+        {% endfor %}
+        <!-- End of the inner loop (cities) -->
+      </ul>
+    </li>
+    {% endfor %}
+    <!-- End of the outer loop (states) -->
+  </ul>
+</body>
+
+</html>
