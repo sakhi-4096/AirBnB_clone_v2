@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>AirBnb Clone</title> <!-- Title for the HTML page -->
+  <link rel="stylesheet" href="static/styles/4-common.css"> <!-- Link to common CSS file -->
+  <link rel="stylesheet" href="static/styles/3-header.css"> <!-- Link to header CSS file -->
+  <link rel="stylesheet" href="static/styles/3-footer.css"> <!-- Link to footer CSS file -->
+  <link rel="stylesheet" href="static/styles/6-filters.css"> <!-- Link to filters CSS file -->
+  <link rel="icon" href="static/images/icon.png" type="image/png"> <!-- Link to the favicon -->
+</head>
+
+<body>
+  <header>
+    <div class="logo"></div> <!-- Header logo -->
+  </header>
+  <div class="container">
+    <section class="filters">
+      <button type="button">Search</button> <!-- Search button -->
+      <div class="locations">
+        <h3>States</h3> <!-- Heading for states -->
+        <h4>&nbsp;</h4> <!-- Empty space -->
+        <ul class="popover">
+          {% for state in states.values() | sort(attribute="name") %}
+          <!-- Loop through states and sort by 'name' attribute -->
+          <li>
+            <h2>{{ state.name }}</h2>
+          </li> <!-- Display state name -->
+          <li>
+            <ul class="popover_l">
+              <!-- Sub-list for cities -->
+              {% for city in state.cities | sort(attribute="name") %}
+              <!-- Loop through cities and sort by 'name' attribute -->
+              <li>{{ city.name }}</li> <!-- Display city name -->
+              {% endfor %}
+            </ul>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="amenities">
+        <h3>Amenities</h3> <!-- Heading for amenities -->
+        <h4>&nbsp;</h4> <!-- Empty space -->
+        <ul class="popover">
+          {% for amenity in amenities.values() | sort(attribute="name") %}
+          <!-- Loop through amenities and sort by 'name' attribute -->
+          <li>{{ amenity.name }}</li> <!-- Display amenity name -->
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+  </div>
+  <footer>
+    Holberton School <!-- Footer content -->
+  </footer>
+</body>
+
+</html>
