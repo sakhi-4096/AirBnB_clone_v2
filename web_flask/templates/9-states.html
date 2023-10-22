@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HBNB</title> <!-- Title for the HTML page -->
+</head>
+
+<body>
+  {% if state is mapping %}
+  <!-- Check if 'state' is a dictionary (mapping) -->
+  <h1>States</h1> <!-- Heading for states if 'state' is a dictionary -->
+  <ul>
+    {% for s in state.values()|sort(attribute="name") %}
+    <!-- Loop through the state values, sorted by 'name' attribute -->
+    <li>{{ s.id }}: <b>{{ s.name }}</b></li>
+    <!-- Display state ID and name in a list item -->
+    {% endfor %}
+  </ul>
+  <!-- End of the loop for states -->
+  {% elif state is defined %}
+  <!-- Check if 'state' is defined (not a dictionary) -->
+  <h1>State: {{ state.name }}</h1>
+  <!-- Display the name of the state if 'state' is defined -->
+  <h3>Cities:</h3> <!-- Heading for cities if 'state' is defined -->
+  <ul>
+    {% for city in state.cities|sort(attribute="name") %}
+    <!-- Loop through the cities of the state, sorted by 'name' attribute -->
+    <li>{{ city.id }}: <b>{{ city.name }}</b></li>
+    <!-- Display city ID and name in a list item -->
+    {% endfor %}
+  </ul>
+  <!-- End of the loop for cities -->
+  {% else %}
+  <!-- If 'state' is neither a dictionary nor defined -->
+  <h1>Not found!</h1>
+  <!-- Display 'Not found!' message -->
+  {% endif %}
+  <!-- End of the conditional statements -->
+</body>
+
+</html>
