@@ -41,6 +41,10 @@ if __name__ == '__main__':
 
 ```
 
+## Credits
+ * [A Minimal Application](https://flask.palletsprojects.com/en/2.3.x/quickstart/)
+ * [Template Designer Documentation](https://jinja.palletsprojects.com/en/3.0.x/templates/)
+ * [Flask Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
 
 ## Contact
  * [Sakhile Ndlazi](https://www.twitter.com/sakhilelindah)
